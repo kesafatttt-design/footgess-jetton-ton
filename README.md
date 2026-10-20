@@ -1,5 +1,5 @@
 ﻿# Footgess (FOGS) - TEP-74 Jetton Token
-
+![Footgess Token](screenshot.jpg)
 A fully compliant Jetton token built with Tact language on the TON Blockchain. This project implements the official TEP-74 (Fungible Token Standard) and TEP-89 (Discoverable Jettons) standards, ensuring full compatibility with major TON wallets (Tonkeeper, Telegram Wallet) and DEXs (STON.fi, DeDust).
 
 ## :rocket: Live Deployment (Testnet)
