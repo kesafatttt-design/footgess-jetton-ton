@@ -1,0 +1,917 @@
+// automatically generated from `@stdlib/std/stdlib.fc` `C:/Users/MOUOOD/my-footgess/jetton-main/src/output/Shard_JettonWalletSharded.fc` 
+PROGRAM{
+  DECLPROC __tact_load_address_opt
+  DECLPROC __tact_store_address_opt
+  DECLPROC __tact_not_null
+  DECLPROC __tact_context_get
+  DECLPROC __tact_context_get_sender
+  DECLPROC $JettonTransfer$_load_without_opcode
+  DECLPROC $JettonTransferInternal$_store
+  DECLPROC $JettonTransferInternal$_store_cell
+  DECLPROC $JettonTransferInternal$_load_without_opcode
+  DECLPROC $JettonTransferInternal$_load_bounced
+  DECLPROC $JettonNotification$_store
+  DECLPROC $JettonNotification$_store_cell
+  DECLPROC $JettonBurn$_load_without_opcode
+  DECLPROC $JettonBurnNotification$_store
+  DECLPROC $JettonBurnNotification$_store_cell
+  DECLPROC $JettonBurnNotification$_load_bounced
+  DECLPROC $JettonExcesses$_store
+  DECLPROC $JettonExcesses$_store_cell
+  DECLPROC $ProvideWalletBalance$_load_without_opcode
+  DECLPROC $VerifyInfo$_store
+  DECLPROC $VerifyInfo$_not_null
+  DECLPROC $TakeWalletBalance$_store
+  DECLPROC $TakeWalletBalance$_store_cell
+  DECLPROC $ClaimTON$_load_without_opcode
+  DECLPROC $JettonWalletSharded$_store
+  DECLPROC $JettonWalletSharded$_load
+  DECLPROC $StdAddress$_get_address
+  DECLPROC $JettonWalletData$_to_external
+  DECLPROC $VerifyInfo$_as_optional
+  DECLPROC $JettonWalletSharded$init$_store
+  DECLPROC $JettonWalletSharded$_contract_load
+  DECLPROC $JettonWalletSharded$_contract_store
+  DECLPROC $BasechainAddress$_constructor_hash
+  DECLPROC $global_newBasechainAddress
+  DECLPROC $global_checkEitherForwardPayload
+  DECLPROC $global_changeShard
+  DECLPROC $Builder$_fun_storeShardedStateInit
+  DECLPROC $global_contractShardBasechainAddress
+  DECLPROC $Address$_fun_getShard
+  DECLPROC $StateInit$_fun_hasSameBasechainAddressWithoutShard
+  DECLPROC $MessageParameters$_fun_send
+  DECLPROC $ShardDeployParameters$_constructor_shard_deployParameters
+  DECLPROC $DeployParameters$_fun_toShard
+  DECLPROC $ShardDeployParameters$_fun_send
+  DECLPROC $JettonWalletSharded$_init_child
+  DECLPROC $JettonWalletData$_constructor_balance_owner_minter_code
+  DECLPROC $JettonWalletSharded$_fun_get_wallet_data
+  DECLPROC $DeployParameters$_constructor_value_mode_bounce_body_init
+  DECLPROC $JettonTransferInternal$_constructor_queryId_amount_sender_responseDestination_forwardTonAmount_forwardPayload
+  DECLPROC $MessageParameters$_constructor_to_value_mode_bounce_body
+  DECLPROC $JettonNotification$_constructor_queryId_amount_sender_forwardPayload
+  DECLPROC $JettonExcesses$_constructor_queryId
+  DECLPROC $VerifyInfo$_constructor_minter_owner_code
+  DECLPROC $MessageParameters$_constructor_body_to_value_mode
+  DECLPROC $TakeWalletBalance$_constructor_balance_verifyInfo
+  DECLPROC $JettonBurnNotification$_constructor_queryId_amount_sender_responseDestination
+  DECLPROC $MessageParameters$_constructor_to_value_mode
+  97026 DECLMETHOD %get_wallet_data
+  DECLPROC recv_internal
+  65535 DECLMETHOD __tact_selector_hack
+  DECLGLOBVAR __tact_context
+  DECLGLOBVAR __tact_context_sender
+  DECLGLOBVAR __tact_child_contract_codes
+  DECLGLOBVAR __tact_randomized
+  __tact_load_address_opt PROCINLINE:<{
+    DUP
+    2 PLDU
+    0 NEQINT
+    IF:<{
+      LDMSGADDR
+      SWAP
+    }>ELSE<{
+      2 PUSHINT
+      SDSKIPFIRST
+      PUSHNULL
+    }>
+  }>
+  __tact_store_address_opt PROCINLINE:<{
+    DUP
+    ISNULL
+    IF:<{
+      DROP
+      b{00} STSLICECONST
+    }>ELSE<{
+      STSLICER
+    }>
+  }>
+  __tact_not_null PROCINLINE:<{
+    DUP
+    ISNULL
+    128 THROWIF
+  }>
+  __tact_context_get PROCINLINE:<{
+    __tact_context GETGLOB
+    4 UNTUPLE
+  }>
+  __tact_context_get_sender PROCINLINE:<{
+    __tact_context_sender GETGLOB
+  }>
+  $JettonTransfer$_load_without_opcode PROCINLINE:<{
+    64 LDU
+    LDVARUINT16
+    LDMSGADDR
+    __tact_load_address_opt INLINECALLDICT
+    SWAP
+    LDOPTREF
+    LDVARUINT16
+    s6 s6 XCPU
+    s1 s6 XCHG
+    s1 s5 XCHG
+    s1 s4 XCHG
+    s3 s3 s0 XCHG3
+  }>
+  $JettonTransferInternal$_store PROCINLINE:<{
+    395134233 PUSHINT
+    s0 s7 XCHG2
+    32 STU
+    s1 s5 XCHG
+    64 STU
+    s0 s3 XCHG2
+    STVARUINT16
+    SWAP
+    STSLICER
+    SWAP
+    __tact_store_address_opt INLINECALLDICT
+    SWAP
+    STVARUINT16
+    SWAP
+    STSLICER
+  }>
+  $JettonTransferInternal$_store_cell PROCINLINE:<{
+    NEWC
+    6 -ROLL
+    $JettonTransferInternal$_store INLINECALLDICT
+    ENDC
+  }>
+  $JettonTransferInternal$_load_without_opcode PROCINLINE:<{
+    64 LDU
+    LDVARUINT16
+    LDMSGADDR
+    __tact_load_address_opt INLINECALLDICT
+    SWAP
+    LDVARUINT16
+    s5 s5 XCPU
+    s1 s5 XCHG
+    s1 s4 XCHG
+    s3 s3 s0 XCHG3
+  }>
+  $JettonTransferInternal$_load_bounced PROCINLINE:<{
+    64 LDU
+    LDVARUINT16
+    -ROT
+  }>
+  $JettonNotification$_store PROCINLINE:<{
+    1935855772 PUSHINT
+    s0 s5 XCHG2
+    32 STU
+    s1 s3 XCHG
+    64 STU
+    SWAP
+    STVARUINT16
+    SWAP
+    STSLICER
+    SWAP
+    STSLICER
+  }>
+  $JettonNotification$_store_cell PROCINLINE:<{
+    NEWC
+    4 -ROLL
+    $JettonNotification$_store INLINECALLDICT
+    ENDC
+  }>
+  $JettonBurn$_load_without_opcode PROCINLINE:<{
+    64 LDU
+    LDVARUINT16
+    __tact_load_address_opt INLINECALLDICT
+    SWAP
+    LDOPTREF
+    4 -ROLL
+  }>
+  $JettonBurnNotification$_store PROCINLINE:<{
+    2078119902 PUSHINT
+    s0 s5 XCHG2
+    32 STU
+    s1 s3 XCHG
+    64 STU
+    SWAP
+    STVARUINT16
+    SWAP
+    STSLICER
+    SWAP
+    __tact_store_address_opt INLINECALLDICT
+  }>
+  $JettonBurnNotification$_store_cell PROCINLINE:<{
+    NEWC
+    4 -ROLL
+    $JettonBurnNotification$_store INLINECALLDICT
+    ENDC
+  }>
+  $JettonBurnNotification$_load_bounced PROCINLINE:<{
+    64 LDU
+    LDVARUINT16
+    -ROT
+  }>
+  $JettonExcesses$_store PROCINLINE:<{
+    3576854235 PUSHINT
+    ROT
+    32 STU
+    64 STU
+  }>
+  $JettonExcesses$_store_cell PROCINLINE:<{
+    NEWC
+    SWAP
+    $JettonExcesses$_store INLINECALLDICT
+    ENDC
+  }>
+  $ProvideWalletBalance$_load_without_opcode PROCINLINE:<{
+    LDMSGADDR
+    1 LDI
+    -ROT
+  }>
+  $VerifyInfo$_store PROCINLINE:<{
+    2SWAP
+    STSLICER
+    ROT
+    STSLICER
+    STREF
+  }>
+  $VerifyInfo$_not_null PROCINLINE:<{
+    DUP
+    ISNULL
+    128 THROWIF
+        3 UNTUPLE
+  }>
+  $TakeWalletBalance$_store PROCINLINE:<{
+    3396861378 PUSHINT
+    s0 s3 XCHG2
+    32 STU
+    SWAP
+    STVARUINT16
+    OVER
+    ISNULL
+    NOT
+    IF:<{
+      TRUE
+      SWAP
+      1 STI
+      SWAP
+      $VerifyInfo$_not_null INLINECALLDICT
+      $VerifyInfo$_store INLINECALLDICT
+    }>ELSE<{
+      FALSE
+      s2 POP
+      1 STI
+    }>
+  }>
+  $TakeWalletBalance$_store_cell PROCINLINE:<{
+    NEWC
+    -ROT
+    $TakeWalletBalance$_store INLINECALLDICT
+    ENDC
+  }>
+  $ClaimTON$_load_without_opcode PROCINLINE:<{
+    LDMSGADDR
+    SWAP
+  }>
+  $JettonWalletSharded$_store PROCINLINE:<{
+    2SWAP
+    STSLICER
+    ROT
+    STSLICER
+    SWAP
+    STVARUINT16
+  }>
+  $JettonWalletSharded$_load PROCINLINE:<{
+    LDMSGADDR
+    LDMSGADDR
+    LDVARUINT16
+    3 -ROLL
+  }>
+  $StdAddress$_get_address PROCINLINE:<{
+    NIP
+  }>
+  $JettonWalletData$_to_external PROCINLINE:<{
+  }>
+  $VerifyInfo$_as_optional PROCINLINE:<{
+        3 TUPLE
+  }>
+  $JettonWalletSharded$init$_store PROCINLINE:<{
+    2SWAP
+    STSLICER
+    ROT
+    STSLICER
+    SWAP
+    STVARUINT16
+  }>
+  $JettonWalletSharded$_contract_load PROCINLINE:<{
+    c4 PUSH
+    CTOS
+    $JettonWalletSharded$_load INLINECALLDICT
+    1 3 BLKDROP2
+  }>
+  $JettonWalletSharded$_contract_store PROCINLINE:<{
+    NEWC
+    3 -ROLL
+    $JettonWalletSharded$_store INLINECALLDICT
+    ENDC
+    c4 POP
+  }>
+  $BasechainAddress$_constructor_hash PROCINLINE:<{
+  }>
+  $global_newBasechainAddress PROCINLINE:<{
+    $BasechainAddress$_constructor_hash INLINECALLDICT
+  }>
+  $global_checkEitherForwardPayload PROCINLINE:<{
+    DUP
+    1 PLDU
+    1 EQINT
+    IF:<{
+          SBITREFS
+      1 EQINT
+      IF:<{
+        1 EQINT
+      }>ELSE<{
+        DROP
+        FALSE
+      }>
+      9 THROWIFNOT
+    }>ELSE<{
+      DROP
+    }>
+  }>
+  $global_changeShard PROCINLINE:<{
+    SWAP
+    248 PUSHINT
+        MODPOW2
+    SWAP
+    248 LSHIFT#
+    OR
+  }>
+  $Builder$_fun_storeShardedStateInit PROCINLINE:<{
+    40 PUSHINT
+    s0 s3 XCHG2
+    6 STU
+    6 PUSHINT
+    SWAP
+    4 STU
+        STREF
+        STREF
+  }>
+  $global_contractShardBasechainAddress PROCINLINE:<{
+        NEWC
+    -ROT
+    $Builder$_fun_storeShardedStateInit INLINECALLDICT
+        ENDC
+        HASHCU
+    $global_newBasechainAddress INLINECALLDICT
+  }>
+  $Address$_fun_getShard PROCINLINE:<{
+    11 PUSHINT
+        SDSKIPFIRST
+    8 LDU
+    DROP
+  }>
+  $StateInit$_fun_hasSameBasechainAddressWithoutShard PROCINLINE:<{
+        REWRITESTDADDR
+    $StdAddress$_get_address INLINECALLDICT
+    -ROT
+    $global_contractShardBasechainAddress INLINECALLDICT
+    __tact_not_null INLINECALLDICT
+    248 PUSHINT
+        MODPOW2
+    SWAP
+    248 PUSHINT
+        MODPOW2
+    EQUAL
+  }>
+  $MessageParameters$_fun_send PROCINLINE:<{
+        NEWC
+        b{01} STSLICECONST  // store tag = $0 and ihr_disabled = true
+        1 STI               // store `bounce`
+        b{000} STSLICECONST // store bounced = false and src = addr_none
+        STSLICE             // store `to`
+        SWAP
+        STGRAMS             // store `value`
+        106 PUSHINT         // 1 + 4 + 4 + 64 + 32 + 1
+        STZEROES
+        // → Stack state
+        // s0: Builder
+        // s1: `body`
+        // s2: `mode`
+        STDICT
+        ENDC
+        SWAP
+        SENDRAWMSG
+  }>
+  $ShardDeployParameters$_constructor_shard_deployParameters PROCINLINE:<{
+    6 ROLL
+  }>
+  $DeployParameters$_fun_toShard PROCINLINE:<{
+    6 -ROLL
+    $ShardDeployParameters$_constructor_shard_deployParameters INLINECALLDICT
+  }>
+  $ShardDeployParameters$_fun_send PROCINLINE:<{
+        NEWC
+    2SWAP
+    $Builder$_fun_storeShardedStateInit INLINECALLDICT
+        ENDC
+        NEWC
+    1 PUSHINT
+    SWAP
+    2 STU
+    s1 s3 XCHG
+        1 STI
+    10 PUSHPOW2
+    SWAP
+    14 STU
+    s2 PUSH
+        HASHCU
+    ROT
+    $global_changeShard INLINECALLDICT
+    SWAP
+    256 STU
+    ROT
+        STVARUINT16
+    3 PUSHINT
+    SWAP
+    107 STU
+        STREF
+        STOPTREF
+        ENDC
+    SWAP
+        SENDRAWMSG
+  }>
+  $JettonWalletSharded$_init_child PROCINLINE:<{
+    MYCODE
+    NEWC
+    3 2 BLKSWAP
+    $JettonWalletSharded$init$_store INLINECALLDICT
+    ENDC
+  }>
+  $JettonWalletData$_constructor_balance_owner_minter_code PROCINLINE:<{
+  }>
+  $JettonWalletSharded$_fun_get_wallet_data PROCINLINE:<{
+        MYCODE
+    s1 s3 s(-2) PU2XC
+    s4 s(-1) PUXC
+    $JettonWalletData$_constructor_balance_owner_minter_code INLINECALLDICT
+  }>
+  $DeployParameters$_constructor_value_mode_bounce_body_init PROCINLINE:<{
+    s4 s5 XCHG
+    s2 s4 XCHG
+    s2 s3 XCHG
+  }>
+  $JettonTransferInternal$_constructor_queryId_amount_sender_responseDestination_forwardTonAmount_forwardPayload PROCINLINE:<{
+  }>
+  $MessageParameters$_constructor_to_value_mode_bounce_body PROCINLINE:<{
+    s4 s1 s3 XCHG3
+    -ROT
+  }>
+  $JettonNotification$_constructor_queryId_amount_sender_forwardPayload PROCINLINE:<{
+  }>
+  $JettonExcesses$_constructor_queryId PROCINLINE:<{
+  }>
+  $VerifyInfo$_constructor_minter_owner_code PROCINLINE:<{
+    s1 s2 XCHG
+  }>
+  $MessageParameters$_constructor_body_to_value_mode PROCINLINE:<{
+    s3 s1 s3 XCHG3
+    TRUE
+  }>
+  $TakeWalletBalance$_constructor_balance_verifyInfo PROCINLINE:<{
+  }>
+  $JettonBurnNotification$_constructor_queryId_amount_sender_responseDestination PROCINLINE:<{
+  }>
+  $MessageParameters$_constructor_to_value_mode PROCINLINE:<{
+    PUSHNULL
+    s0 s0 s3 XCHG3
+    TRUE
+  }>
+  %get_wallet_data PROC:<{
+    $JettonWalletSharded$_contract_load INLINECALLDICT
+    $JettonWalletSharded$_fun_get_wallet_data INLINECALLDICT
+    3 4 BLKDROP2
+    $JettonWalletData$_to_external INLINECALLDICT
+  }>
+  recv_internal PROC:<{
+    SWAP
+    CTOS
+    2 PUSHINT
+    SDSKIPFIRST
+    1 LDI
+    1 LDI
+    LDMSGADDR
+    OVER
+    s3 s4 XCHG
+    s6 s6 XCHG2
+    4 TUPLE
+    __tact_context SETGLOB
+    s0 s2 XCHG
+    __tact_context_sender SETGLOB
+    $JettonWalletSharded$_contract_load INLINECALLDICT
+    s0 s4 XCHG
+    IFJMP:<{
+      s0 s2 XCHG
+      32 PUSHINT
+      SDSKIPFIRST
+      0 PUSHINT
+      OVER
+      SBITS
+      31 GTINT
+      IF:<{
+        DROP
+        32 LDU
+        SWAP
+      }>
+      DUP
+      395134233 PUSHINT
+      EQUAL
+      IFJMP:<{
+        DROP
+        $JettonTransferInternal$_load_bounced INLINECALLDICT
+        2 1 BLKDROP2
+        s1 s3 XCHG
+        ADD
+        $JettonWalletSharded$_contract_store INLINECALLDICT
+      }>
+      2078119902 PUSHINT
+      EQUAL
+      IFJMP:<{
+        $JettonBurnNotification$_load_bounced INLINECALLDICT
+        2 1 BLKDROP2
+        s1 s3 XCHG
+        ADD
+        $JettonWalletSharded$_contract_store INLINECALLDICT
+      }>
+      4 BLKDROP
+    }>
+    s0 s2 XCHG
+    32 LDUQ 130 THROWIFNOT
+    OVER
+    260734629 PUSHINT
+    EQUAL
+    IFJMP:<{
+      NIP
+      $JettonTransfer$_load_without_opcode INLINECALLDICT
+      s2 POP
+      s6 POP
+      s2 PUSH
+          REWRITESTDADDR DROP 138 THROWIF
+      9215 PUSHINT
+      __tact_context_get_sender INLINECALLDICT
+      s8 s(-1) PUXC
+      SDEQ
+      THROWANYIFNOT
+      s8 s3 XCPU
+      SUB
+      2366 PUSHINT
+      OVER
+      -1 GTINT
+      THROWANYIFNOT
+      s8 PUSH
+      $global_checkEitherForwardPayload INLINECALLDICT
+      __tact_context_get INLINECALLDICT
+      s9 PUSH
+          SGN
+      INC
+      s4 s3 s2 XC2PU
+      32113 PUSHINT
+      s0 s6 XCHG
+          LDMSGADDR   // load dest:MsgAddressInt
+          LDGRAMS     // load value:CurrencyCollection
+          ONE
+          SDSKIPFIRST // skip extra currency collection
+          LDGRAMS     // load ihr_fee
+          LDGRAMS     // load fwd_fee, we'll be using this!
+          DROP        // drop remaining Slice (with created_lt and created_at)
+          // There are 7 entries on the stack — first 3 fields of Context plus 4 loaded ones.
+          // The topmost is fwd_fee, which is the only one we're after, so let's drop 6 entries below:
+          6 1 BLKDROP2 // drop the loaded values as well as the first 3 fields of Context
+          ZERO              // not masterchain
+          GETORIGINALFWDFEE // floor(fwd_fee * 2^16 / (2^16 - first_frac)), where
+                            // first_frac is a value listed in config param 25
+                            // of the blockchain: https://tonviewer.com/config#25
+                            // this instruction effectively multiplies the fwd_fee by 1.5,
+                            // at least for the current value of first_frac, which is 21845
+      s1 s2 XCHG
+      MUL
+      s8 s(-1) PUXC
+      ADD
+      30 PUSHINT
+      20000 PUSHINT
+      FALSE
+          GETFORWARDFEE
+      ADD
+      11050 PUSHINT
+      FALSE
+          GETGASFEE
+      1 LSHIFT#
+      10000000 PUSHINT
+      ADD
+      ADD
+      GREATER
+      THROWANYIFNOT
+      s2 PUSH
+      $Address$_fun_getShard INLINECALLDICT
+      s5 s4 XCHG2
+      0 PUSHINT
+      64 PUSHINT
+      TRUE
+      s10 PUSH
+      s6 s1 s3 XCHG3
+      s10 s13 XCHG2
+      $JettonTransferInternal$_constructor_queryId_amount_sender_responseDestination_forwardTonAmount_forwardPayload INLINECALLDICT
+      $JettonTransferInternal$_store_cell INLINECALLDICT
+      s2 s7 s8 XCPU2
+      $JettonWalletSharded$_init_child INLINECALLDICT
+      s5 s9 XCHG
+      s2 s4 XCHG
+      s3 s6 XCHG
+      s2 s6 XCHG
+      $DeployParameters$_constructor_value_mode_bounce_body_init INLINECALLDICT
+      6 ROLL
+      $DeployParameters$_fun_toShard INLINECALLDICT
+      $ShardDeployParameters$_fun_send INLINECALLDICT
+      s0 s2 XCHG
+      $JettonWalletSharded$_contract_store INLINECALLDICT
+    }>
+    OVER
+    395134233 PUSHINT
+    EQUAL
+    IFJMP:<{
+      NIP
+      $JettonTransferInternal$_load_without_opcode INLINECALLDICT
+      s6 POP
+      s8 s3 XCPU
+      ADD
+      s2 s7 PUSH2
+      0 PUSHINT
+      $JettonWalletSharded$_init_child INLINECALLDICT
+      __tact_context_get_sender INLINECALLDICT
+      $StateInit$_fun_hasSameBasechainAddressWithoutShard INLINECALLDICT
+      IFNOT:<{
+        9215 PUSHINT
+        __tact_context_get_sender INLINECALLDICT
+        s9 PUSH
+        SDEQ
+        THROWANYIFNOT
+      }>
+      __tact_context_get INLINECALLDICT
+      OVER
+          BALANCE FIRST
+      OVER
+      SUB
+      s14 PUSH
+      0 GTINT
+      IF:<{
+        4 2 BLKSWAP
+            LDMSGADDR   // load dest:MsgAddressInt
+            LDGRAMS     // load value:CurrencyCollection
+            ONE
+            SDSKIPFIRST // skip extra currency collection
+            LDGRAMS     // load ihr_fee
+            LDGRAMS     // load fwd_fee, we'll be using this!
+            DROP        // drop remaining Slice (with created_lt and created_at)
+            // There are 7 entries on the stack — first 3 fields of Context plus 4 loaded ones.
+            // The topmost is fwd_fee, which is the only one we're after, so let's drop 6 entries below:
+            6 1 BLKDROP2 // drop the loaded values as well as the first 3 fields of Context
+            ZERO              // not masterchain
+            GETORIGINALFWDFEE // floor(fwd_fee * 2^16 / (2^16 - first_frac)), where
+                              // first_frac is a value listed in config param 25
+                              // of the blockchain: https://tonviewer.com/config#25
+                              // this instruction effectively multiplies the fwd_fee by 1.5,
+                              // at least for the current value of first_frac, which is 21845
+        s11 s(-1) PUXC
+        ADD
+        s1 s2 XCHG
+        SUB
+        1 PUSHINT
+        FALSE
+        s8 PUSH
+        s8 s1 s3 XCHG3
+        s7 s10 XCHG2
+        $JettonNotification$_constructor_queryId_amount_sender_forwardPayload INLINECALLDICT
+        $JettonNotification$_store_cell INLINECALLDICT
+        s8 PUSH
+        s0 s4 XCHG
+        s3 s11 XCHG
+        s6 s5 s5 XCHG3
+        $MessageParameters$_constructor_to_value_mode_bounce_body INLINECALLDICT
+        $MessageParameters$_fun_send INLINECALLDICT
+        s0 s6 XCHG
+        s3 s3 XCHG2
+      }>ELSE<{
+        s7 s14 XCHG
+        s6 s11 XCHG
+        8 2 BLKDROP2
+      }>
+      10000000 PUSHINT
+          MAX
+      2 PUSHINT
+          RAWRESERVE
+      s5 PUSH
+      ISNULL
+      NOT
+      IF:<{
+        DUP
+        0 GTINT
+      }>ELSE<{
+        FALSE
+      }>
+      IF:<{
+        s0 s5 XCHG
+        __tact_not_null INLINECALLDICT
+        130 PUSHINT
+        FALSE
+        s0 s3 XCHG
+        $JettonExcesses$_constructor_queryId INLINECALLDICT
+        $JettonExcesses$_store_cell INLINECALLDICT
+        s2 s4 XCHG
+        s3 s7 XCHG
+        s1 s7 s0 XCHG3
+        $MessageParameters$_constructor_to_value_mode_bounce_body INLINECALLDICT
+        $MessageParameters$_fun_send INLINECALLDICT
+      }>ELSE<{
+        2DROP
+        s3 POP
+      }>
+      s0 s2 XCHG
+      $JettonWalletSharded$_contract_store INLINECALLDICT
+    }>
+    OVER
+    2059982169 PUSHINT
+    EQUAL
+    IFJMP:<{
+      NIP
+      $ProvideWalletBalance$_load_without_opcode INLINECALLDICT
+      PUSHNULL
+      s3 POP
+      IF:<{
+        NIP
+            MYCODE
+        s3 s3 s0 XCHG3
+        $VerifyInfo$_constructor_minter_owner_code INLINECALLDICT
+        $VerifyInfo$_as_optional INLINECALLDICT
+        SWAP
+      }>ELSE<{
+        2 2 BLKDROP2
+      }>
+      -ROT
+      $TakeWalletBalance$_constructor_balance_verifyInfo INLINECALLDICT
+      $TakeWalletBalance$_store_cell INLINECALLDICT
+      SWAP
+      0 PUSHINT
+      64 PUSHINT
+      $MessageParameters$_constructor_body_to_value_mode INLINECALLDICT
+      $MessageParameters$_fun_send INLINECALLDICT
+    }>
+    OVER
+    1499400124 PUSHINT
+    EQUAL
+    IFJMP:<{
+      NIP
+      $JettonBurn$_load_without_opcode INLINECALLDICT
+      DROP
+      s3 POP
+      9215 PUSHINT
+      __tact_context_get_sender INLINECALLDICT
+      s5 s(-1) PUXC
+      SDEQ
+      THROWANYIFNOT
+      s5 s5 XCPU
+      SUB
+      2366 PUSHINT
+      OVER
+      -1 GTINT
+      THROWANYIFNOT
+      __tact_context_get INLINECALLDICT
+      s3 s3 s0 XCHG3
+      s3 s(-1) PUXC
+          LDMSGADDR   // load dest:MsgAddressInt
+          LDGRAMS     // load value:CurrencyCollection
+          ONE
+          SDSKIPFIRST // skip extra currency collection
+          LDGRAMS     // load ihr_fee
+          LDGRAMS     // load fwd_fee, we'll be using this!
+          DROP        // drop remaining Slice (with created_lt and created_at)
+          // There are 7 entries on the stack — first 3 fields of Context plus 4 loaded ones.
+          // The topmost is fwd_fee, which is the only one we're after, so let's drop 6 entries below:
+          6 1 BLKDROP2 // drop the loaded values as well as the first 3 fields of Context
+          ZERO              // not masterchain
+          GETORIGINALFWDFEE // floor(fwd_fee * 2^16 / (2^16 - first_frac)), where
+                            // first_frac is a value listed in config param 25
+                            // of the blockchain: https://tonviewer.com/config#25
+                            // this instruction effectively multiplies the fwd_fee by 1.5,
+                            // at least for the current value of first_frac, which is 21845
+      32113 PUSHINT
+      8000 PUSHINT
+      FALSE
+          GETGASFEE
+      1 LSHIFT#
+      s1 s2 XCHG
+      ADD
+      s1 s2 XCHG
+      GREATER
+      THROWANYIFNOT
+      0 PUSHINT
+      64 PUSHINT
+      s3 s7 s5 XC2PU
+      TRUE
+      s0 s6 XCHG
+      $JettonBurnNotification$_constructor_queryId_amount_sender_responseDestination INLINECALLDICT
+      $JettonBurnNotification$_store_cell INLINECALLDICT
+      s5 PUSH
+      s7 s4 s4 XCHG3
+      $MessageParameters$_constructor_to_value_mode_bounce_body INLINECALLDICT
+      $MessageParameters$_fun_send INLINECALLDICT
+      s0 s2 XCHG
+      $JettonWalletSharded$_contract_store INLINECALLDICT
+    }>
+    s3 POP
+    s3 POP
+    s0 s2 XCHG
+    60010958 PUSHINT
+    EQUAL
+    IFJMP:<{
+      $ClaimTON$_load_without_opcode INLINECALLDICT
+      NIP
+      9215 PUSHINT
+      __tact_context_get_sender INLINECALLDICT
+      s1 s3 XCHG
+      SDEQ
+      s1 s2 XCHG
+      THROWANYIFNOT
+      10000000 PUSHINT
+      16 PUSHINT
+          RAWRESERVE
+      0 PUSHINT
+      7 PUSHPOW2
+      $MessageParameters$_constructor_to_value_mode INLINECALLDICT
+      $MessageParameters$_fun_send INLINECALLDICT
+    }>
+    2DROP
+    130 THROW
+  }>
+  __tact_selector_hack PROC:<{
+    @atend @ 1 {
+            execute current@ context@ current!
+            {
+                // The core idea of this function is to save gas by avoiding unnecessary dict jump, when recv_internal/recv_external is called
+                // We want to extract recv_internal/recv_external from the dict and select needed function
+                // not by jumping to the needed function by it's index, but by using usual IF statements.
+                }END> b> // Close previous builder, now we have a cell of previous code on top of the stack
+                <{ // Start of the new code builder
+                    SETCP0
+                    // Swap the new code builder with the previous code, now we have previous code on top of the stack
+                    swap
+                    // Transform cell to slice and load first ref from the previous code, now we have the dict on top of the stack
+                    <s ref@
+                    // Extract the recv_internal from the dict
+                    dup 0 swap @procdictkeylen idict@ { "internal shortcut error" abort } ifnot
+                    swap
+                    // Delete the recv_internal from the dict
+                    0 swap @procdictkeylen idict- drop
+                    // Delete the recv_external from the dict (it's okay if it's not there)
+                    -1 swap @procdictkeylen idict- drop
+                    // Delete the __tact_selector_hack from the dict
+                    65535 swap @procdictkeylen idict- drop
+                    // Bring the code builder from the bottom of the stack
+                    // because if recv_external extraction is optional, and the number of elements on the stack is not fixed
+                    depth 1- roll
+                    // Swap with the dict from which we extracted recv_internal and (maybe) recv_external
+                    swap
+                    // Check if the dict is empty
+                    dup null?
+                    // Store a copy of this flag in the bottom of the stack
+                    dup depth 1- -roll
+                    {
+                        // If the dict is empty, just drop it (it will be null if it's empty)
+                        drop
+                    }
+                    {
+                        // If the dict is not empty, prepare continuation to be stored in c3
+                        <{
+                            // Save this dict as first ref in this continuation, it will be pushed in runtime by DICTPUSHCONST
+                            swap @procdictkeylen DICTPUSHCONST
+                            // Jump to the needed function by it's index
+                            DICTIGETJMPZ
+                            // If such key is not found, throw 11 along with the key as an argument
+                            11 THROWARG
+                        }> PUSHCONT
+                        // Store the continuation in c3
+                        c3 POP
+                    } cond
+                    // Function id is on top of the (runtime) stack
+                    DUP IFNOTJMP:<{
+                        // place recv_internal here
+                        DROP swap @addop
+                    }>
+                    // Bring back the flag, indicating if the dict is empty or not from the bottom of the stack
+                    depth 1- roll
+                    {
+                        // If the dict is empty, throw 11
+                        11 THROWARG
+                    }
+                    {
+                        // If the dict is not empty, jump to continuation from c3
+                        c3 PUSH JMPX
+                    } cond
+                }> b>
+            } : }END>c
+            current@ context! current!
+        } does @atend !
+  }>
+}END>c
