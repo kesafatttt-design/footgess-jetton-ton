@@ -1,33 +1,23 @@
-﻿# Footgess (FOGS) - TEP-74 Jetton Token
-![Footgess Token](screenshot.jpg)
-A fully compliant Jetton token built with Tact language on the TON Blockchain. This project implements the official TEP-74 (Fungible Token Standard) and TEP-89 (Discoverable Jettons) standards, ensuring full compatibility with major TON wallets (Tonkeeper, Telegram Wallet) and DEXs (STON.fi, DeDust).
+# Footgess (FOGS) - TEP-74 Jetton Token
 
-## :rocket: Live Deployment (Testnet)
+This repository contains the smart contracts for the Footgess (FOGS) Jetton token deployed on the TON Blockchain.
 
-- Token Name: Footgess
-- Symbol: FOGS
-- Total Supply: 10 FOGS (Minted for testing)
-- Contract Address (Jetton Minter): EQAsvPtrunihEHCmp42a63dTQEYzscpNxcq4b3oNZB17NZWZ
-- Explorer Link: [View on Tonscan (Testnet)](https://testnet.tonscan.org/address/EQAsvPtrunihEHCmp42a63dTQEYzscpNxcq4b3oNZB17NZWZ)
+## 🛠 Technologies Used
+*   Smart Contract Language: Tact
+*   Blockchain: TON Network
+*   Metadata Storage: IPFS (via Pinata)
 
-## 🛠 Tech Stack
-
-- Smart Contract Language: Tact
-- Development Framework: Blueprint (@ton/blueprint)
-- Client Library: @ton/ton & @ton/core
-- Cryptography: @ton/crypto
-- Network: TON Testnet
+## :rocket: Features
+*   Standard Jetton implementation (TEP-74).
+*   Custom metadata (Logo, Name, Symbol) fully indexed on Tonviewer.
+*   Includes utility scripts to update contract metadata dynamically.
 
 ## :open_file_folder: Project Structure
+*   contracts/: Contains the main Tact smart contract files.
+*   scripts/: Deployment and utility scripts.
+*   wrappers/: TypeScript wrappers for interacting with the contract.
+*   output/: Build artifacts.
 
-- contracts/ - Contains the Tact source files (jetton-minter.tact, jetton-wallet.tact)
-- src/output/ - Auto-generated TypeScript wrappers and bindings from Tact compiler
-- src/scripts/ - Deployment and interaction scripts (base.deploy.ts, mint.ts)
-- src/wrappers/ - Extended TypeScript wrappers for easier contract interaction
-
-## ⚙ How to Deploy & Mint
-
-### 1. Prerequisites
-Ensure you have Node.js installed (v18+ recommended), then install dependencies:
-`bash
-npm install --legacy-peer-deps
+## :link: Links
+*   Telegram Bot: [@FootgessPredBot](https://t.me/FootgessPredBot)
+*   Official Channel: [@Footgess](https://t.me/Footgess)
